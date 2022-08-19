@@ -1,14 +1,28 @@
-import { ReactNode } from 'react'
 import { NavigationContainer } from '@react-navigation/native'
+import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-type Props = {
-  children: ReactNode
-}
+import HomeScreen from '../../screens/home-screen'
+import TaskScreen from '../../screens/task-screen'
+import { Screens } from '../../commons/enums/screens'
 
-export default function AppContainer({ children }: Props) {
+const Stack = createNativeStackNavigator()
+
+export const AppContainer = () => {
   return (
     <NavigationContainer>
-      { children }
+      <Stack.Navigator>
+        <Stack.Screen
+          name={ Screens.Home }
+          component={ HomeScreen }
+        />
+        <Stack.Screen
+          name={ Screens.Task }
+          component={ TaskScreen }
+        />
+      </Stack.Navigator>
     </NavigationContainer>
   )
 }
+
+export default AppContainer
+

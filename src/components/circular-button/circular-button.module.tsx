@@ -1,6 +1,6 @@
 import { TouchableOpacity, Text } from 'react-native'
 
-import CircularButtonStyle from './circular-button.style'
+import { CircularButtonStyle } from './circular-button.style'
 
 type props = {
   text: string,

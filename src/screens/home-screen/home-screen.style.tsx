@@ -11,7 +11,7 @@ const HomeScreenStyle = StyleSheet.create({
 
   },
   taskSection: {
-    flex: 2,
+    flex: 1,
     justifyContent: 'flex-end',
     fontSize: 40
   }
