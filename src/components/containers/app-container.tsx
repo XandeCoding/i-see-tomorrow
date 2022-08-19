@@ -12,11 +12,10 @@ export const AppContainer = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name={ Screens.Home }
-          component={ HomeScreen }
-        />
+          name={ Screens.HOME }
+          component={ HomeScreen } />
         <Stack.Screen
-          name={ Screens.Task }
+          name={ Screens.TASK }
           component={ TaskScreen }
         />
       </Stack.Navigator>
