@@ -5,7 +5,7 @@ import { CircularButtonStyle } from './circular-button.style'
 type props = {
   text: string,
   onPressCallback: () => {}
-} 
+}
 
 export const CircularButton = (
   { text, onPressCallback }: props

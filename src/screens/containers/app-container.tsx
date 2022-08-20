@@ -1,9 +1,9 @@
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 
-import HomeScreen from '../../screens/home-screen'
-import TaskScreen from '../../screens/task-screen'
-import { Screens } from '../../commons/enums/screens'
+import HomeScreen from '../home-screen'
+import TaskScreen from '../task-screen'
+import { Screen } from '../../commons/enums/screen'
 
 const Stack = createNativeStackNavigator()
 
@@ -12,10 +12,10 @@ export const AppContainer = () => {
     <NavigationContainer>
       <Stack.Navigator>
         <Stack.Screen
-          name={ Screens.HOME }
+          name={ Screen.HOME }
           component={ HomeScreen } />
         <Stack.Screen
-          name={ Screens.TASK }
+          name={ Screen.TASK }
           component={ TaskScreen }
         />
       </Stack.Navigator>

@@ -3,7 +3,7 @@ import { SafeAreaView, TextInput } from 'react-native'
 import { TextInputCustomStyle } from './text-input-custom.style'
 
 type props = {
-  onChangeText: (text: string) => {}
+  onChangeText: (text: string) => void
 }
 
 export const TextInputCustom = ({ onChangeText }: props) => {
