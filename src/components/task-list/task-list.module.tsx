@@ -10,7 +10,7 @@ type props = {
 export const TaskList = ({ tasks }: props) => {
     return (
         <View>
-            { tasks.map(task => <Task task={ task } />) }
+            { tasks.map(task => <Task key={ task.key} task={ task } />) }
         </View>
     )
 }

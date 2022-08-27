@@ -14,10 +14,7 @@ export const HomeScreen = ({ navigation }: any) => {
   useEffect(() => {
     getDailyTasks().then((dailyTasks) => {
       const items = dailyTasks
-      .map(([_key, value]) => value)
-      .filter((task) => !!task)
-      .map((task) => JSON.parse(task as string))
-      setTasks(items as ITask[])
+      setTasks(items)
     })
   }, [])
 
