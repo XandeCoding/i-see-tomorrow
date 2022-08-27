@@ -1,13 +1,15 @@
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { Collection } from "../commons/enums/collection"
+import { ITask } from "../entities/interfaces/ITask"
 import getDailyTasksCount from "./getDailyTasksCount"
 
-const setDailyTask = async (taskName: string) => {
+const setDailyTask = async (taskInfo: ITask) => {
   try {
     const newDailyTaskCount = await getDailyTasksCount() + 1
+    const taskStringify = JSON.stringify(taskInfo)
     const taskData: [string, string] = [
       `${ Collection.DAILY_TASK }:${ newDailyTaskCount }`,
-      taskName
+      taskStringify
     ]
     const incrementTaskCount: [string, string] = [
       Collection.DAILY_TASK_COUNTER,
