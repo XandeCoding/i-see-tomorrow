@@ -1,6 +1,6 @@
 import { StyleSheet } from 'react-native'
 
-const HomeScreenStyle = StyleSheet.create({
+export const HomeScreenStyle = StyleSheet.create({
   container: {
     flex: 3,
     justifyContent: 'center',
@@ -13,7 +13,3 @@ const HomeScreenStyle = StyleSheet.create({
     fontSize: 40
   }
 })
-
-
-export default HomeScreenStyle
-

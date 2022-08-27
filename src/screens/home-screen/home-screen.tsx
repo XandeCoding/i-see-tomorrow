@@ -1,12 +1,12 @@
 import { useState, useEffect } from 'react'
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
+import { Button } from 'react-native-paper'
 
-import HomeScreenStyle from './home-screen.style'
-import CircularButton from '../../components/circular-button'
+import { HomeScreenStyle } from './home-screen.style'
 import { Screen } from '../../commons/enums/screen'
+import { ITask } from '../../entities/interfaces/ITask'
 import TaskList from '../../components/task-list'
 import getDailyTasks from '../../storage/getDailyTasks'
-import { ITask } from '../../entities/interfaces/ITask'
 
 export const HomeScreen = ({ navigation }: any) => {
   const [tasks, setTasks] = useState<ITask[]>([])
@@ -25,12 +25,14 @@ export const HomeScreen = ({ navigation }: any) => {
           tasks={ tasks }
         />
       </View>
-      <CircularButton
-        text='Clique para adicionar uma tarefa!'
-        onPressCallback={
+      <Button
+        mode='contained'
+        onPress={
           () => navigation.navigate(Screen.TASK)
         }
-      />
+      >
+        Clique para adicionar uma tarefa!
+      </Button>
     </View>
   )
 }

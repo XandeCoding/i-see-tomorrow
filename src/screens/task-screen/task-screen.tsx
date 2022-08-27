@@ -1,32 +1,37 @@
 import { useState } from 'react'
-import { View, Text } from 'react-native'
-import CircularButton from '../../components/circular-button'
-import TextInputCustom from '../../components/text-input-custom'
-import addDailyTask from '../../storage/addDailyTask'
-import { ITask } from '../../entities/interfaces/ITask'
+import { View } from 'react-native'
+import { Button, TextInput } from 'react-native-paper'
 
-export const TaskScreen = () => {
+import { Screen } from '../../commons/enums/screen'
+import addDailyTask from '../../storage/addDailyTask'
+import { TaskScreenStyle } from './task-screen.style'
+
+export const TaskScreen = ({ navigation }: any) => {
   const [taskName, setTaskName] = useState('')
+  const [saveLoading, setSaveLoading] = useState(false)
 
   const handleNewTask = async () => {
-    const newTask: ITask = {
-      name: taskName,
-      check: false
-    }
-
-    return addDailyTask(newTask)
+    setSaveLoading(true)
+    await addDailyTask(taskName)
+    setSaveLoading(false)
+    navigation.navigate(Screen.HOME)
   }
 
   return (
-    <View>
-      <Text>Criando uma nova Tarefa 😁</Text>
-      <TextInputCustom
+    <View style={ TaskScreenStyle.container }>
+      <TextInput
+        label={ taskName }
+        placeholder='Digite o nome da tarefa desejada!'
         onChangeText={ (taskName) => setTaskName(taskName) }
       />
-      <CircularButton
-        text={ 'Adicionar task' }
-        onPressCallback={ handleNewTask }
-      />
+      <Button
+        mode='contained'
+        style= { TaskScreenStyle.button }
+        loading={ saveLoading }
+        onPress={ handleNewTask }
+      >
+        Clique para adicionar uma tarefa!
+      </Button>
     </View>
   )
 }
