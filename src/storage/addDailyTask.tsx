@@ -3,10 +3,12 @@ import { Collection } from "../commons/enums/collection"
 import { ITask } from "../entities/interfaces/ITask"
 import getDailyTasksCount from "./getDailyTasksCount"
 
-const setDailyTask = async (taskInfo: ITask) => {
+const addDailyTask = async (taskInfo: ITask) => {
   try {
     const newDailyTaskCount = await getDailyTasksCount() + 1
     const taskStringify = JSON.stringify(taskInfo)
+    console.log("task info", taskInfo, taskStringify)
+
     const taskData: [string, string] = [
       `${ Collection.DAILY_TASK }:${ newDailyTaskCount }`,
       taskStringify
@@ -22,5 +24,5 @@ const setDailyTask = async (taskInfo: ITask) => {
   }
 }
 
-export default setDailyTask
+export default addDailyTask
 

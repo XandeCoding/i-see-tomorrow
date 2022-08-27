@@ -4,15 +4,12 @@ const HomeScreenStyle = StyleSheet.create({
   container: {
     flex: 3,
     justifyContent: 'center',
-    alignItems: 'center'
-  },
-  principalText: {
-    fontSize: 20,
-
+    alignItems: 'center',
+    padding: 50
   },
   taskSection: {
     flex: 1,
-    justifyContent: 'flex-end',
+    justifyContent: 'flex-start',
     fontSize: 40
   }
 })

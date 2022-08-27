@@ -1,13 +1,16 @@
-import { View, Text } from 'react-native'
+import { View } from 'react-native'
+
+import { ITask } from '../../entities/interfaces/ITask'
+import Task from '../task'
 
 type props = {
-    items: string[]
+    tasks: ITask[]
 }
 
-export const TaskList = ({ items }: props) => {
+export const TaskList = ({ tasks }: props) => {
     return (
         <View>
-            { items.map((item) => <Text>{ item }</Text>) }
+            { tasks.map(task => <Task task={ task } />) }
         </View>
     )
 }
