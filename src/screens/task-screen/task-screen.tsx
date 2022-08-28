@@ -20,7 +20,7 @@ export const TaskScreen = ({ navigation }: any) => {
   return (
     <View style={ TaskScreenStyle.container }>
       <TextInput
-        label={ taskName }
+        label='Nome da Tarefa'
         placeholder='Digite o nome da tarefa desejada!'
         onChangeText={ (taskName) => setTaskName(taskName) }
       />
