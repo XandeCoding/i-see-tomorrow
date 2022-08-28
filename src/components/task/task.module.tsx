@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { View } from 'react-native'
+import { TouchableOpacity, View } from 'react-native'
 import { Checkbox, Text } from 'react-native-paper'
 import { ITask } from "../../entities/interfaces/ITask"
 import updateDailyTask from '../../storage/updateDailyTask'
@@ -20,13 +20,22 @@ export const Task = ({ task }: props) => {
     await updateDailyTask(task)
   }
 
+  const handleDelete = async () => {
+  }
+
   return (
     <View style={ TaskStyle.body }>
+      <TouchableOpacity
+        activeOpacity={ 0.59 }
+        style={ TaskStyle.pressContainer}
+        onPress={ handleCheck }
+        onLongPress={ handleDelete }
+      >
         <Text>{ task.name }</Text>
         <Checkbox
           status={ check ? 'checked' : 'unchecked' }
-          onPress={ handleCheck }
         />
+      </TouchableOpacity>
     </View>
   )
 }
