@@ -1,17 +1,19 @@
-<div style="text-align: center; margin-bottom: 3em;">
-    <h1 >I see Tomorrow</h1>
-    <img src="https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" placeholder="react native"/>
-    <img src="https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37" placeholder="expo" />
-</div>
+<h1 align="center">
+    I see Tomorrow
+</h1>
+<p align="center">
+    <img src="https://img.shields.io/badge/react_native-%2320232a.svg?style=for-the-badge&logo=react&logoColor=%2361DAFB" alt="react native" />
+    <img src="https://img.shields.io/badge/expo-1C1E24?style=for-the-badge&logo=expo&logoColor=#D04A37" alt="expo" />
+</p>
 
 
 Aplicativo de uma todo-list para estudo utilizando Expo e Async Storage para salvar as tarefas, focando em ser fácil e acessível para o utilizador.
 
 ## Demonstração
 
-<div style="text-align: center; margin-inline: 3em;">
-    <img src="https://github.com/XandeCoding/i-see-tomorrow/demo.gif">
-</div>
+<p align="center">
+    <img src="https://github.com/XandeCoding/i-see-tomorrow/blob/main/demo.gif?raw=true" alt="demonstração" />
+</p>
 
 ## Tecnologias Usadas
 
