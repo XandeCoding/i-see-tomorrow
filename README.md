@@ -9,15 +9,16 @@
 
 Aplicativo de uma todo-list para estudo utilizando Expo e Async Storage para salvar as tarefas, focando em ser fácil e acessível para o utilizador.
 
-## Demonstração
-
-<p align="center">
-    <img src="https://github.com/XandeCoding/i-see-tomorrow/blob/main/demo.gif?raw=true" alt="demonstração" />
-</p>
-
 ## Tecnologias Usadas
 
 - [**React Native** - _0.69.5_](https://reactnative.dev/)
 - [**Expo** - _46.0.0_](https://expo.dev/)
 - [**Async Storage** - _1.17.3_](https://react-native-async-storage.github.io/async-storage/docs/usage/)
 - [**React Native Paper** - _5.0.0_](https://reactnativepaper.com/)
+
+
+## Demonstração
+
+<p align="center">
+    <img src="https://github.com/XandeCoding/i-see-tomorrow/blob/main/demo.gif?raw=true" alt="demonstração" />
+</p>
