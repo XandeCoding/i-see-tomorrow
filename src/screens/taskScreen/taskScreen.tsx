@@ -4,7 +4,7 @@ import { Button, TextInput } from 'react-native-paper'
 
 import { Screen } from '../../commons/enums/screen'
 import addDailyTask from '../../storage/addDailyTask'
-import { TaskScreenStyle } from './task-screen.style'
+import { TaskScreenStyle } from './taskScreen.style'
 
 export const TaskScreen = ({ navigation }: any) => {
   const [taskName, setTaskName] = useState('')

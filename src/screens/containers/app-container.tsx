@@ -2,8 +2,8 @@ import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
 import { Provider as PaperProvider } from 'react-native-paper'
 
-import HomeScreen from '../home-screen'
-import TaskScreen from '../task-screen'
+import HomeScreen from '../homeScreen'
+import TaskScreen from '../taskScreen'
 import { Screen } from '../../commons/enums/screen'
 
 const Stack = createNativeStackNavigator()

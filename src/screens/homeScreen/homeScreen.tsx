@@ -2,10 +2,10 @@ import { useState, useEffect } from 'react'
 import { View } from 'react-native'
 import { Button } from 'react-native-paper'
 
-import { HomeScreenStyle } from './home-screen.style'
+import { HomeScreenStyle } from './homeScreen.style'
 import { Screen } from '../../commons/enums/screen'
 import { ITask } from '../../entities/interfaces/ITask'
-import TaskList from '../../components/task-list'
+import TaskList from '../../components/taskList'
 import getDailyTasks from '../../storage/getDailyTasks'
 
 export const HomeScreen = ({ navigation }: any) => {
