@@ -3,7 +3,7 @@ import { Collection } from "../commons/enums/collection"
 import { ITask } from "../entities/interfaces/ITask"
 import getDailyTasksCount from "./getDailyTasksCount"
 
-const addDailyTask = async (taskName: string) => {
+const addDailyTask = async (taskName: string): Promise<ITask> => {
   try {
     const newDailyTaskCount = await getDailyTasksCount() + 1
     const key = `${ Collection.DAILY_TASK }:${ newDailyTaskCount }`
@@ -24,6 +24,7 @@ const addDailyTask = async (taskName: string) => {
     ]
 
     await AsyncStorage.multiSet([taskData, incrementTaskCount])
+    return taskInfo
   } catch(error) {
     throw new Error('Was not possible create daily task')
   }

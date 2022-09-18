@@ -1,12 +1,13 @@
 import { StyleSheet } from 'react-native'
 
 export const TaskStyle = StyleSheet.create({
-    body: {
-        justifyContent: 'center',
-    },
-    pressContainer: {
-        alignItems: 'center',
-        justifyContent: 'center',
-        flexDirection: 'row',
-    }
+  body: {
+    width: '100%',
+    justifyContent: 'center',
+  },
+  pressContainer: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    flexDirection: 'row',
+  }
 })

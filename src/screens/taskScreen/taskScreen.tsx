@@ -1,18 +1,22 @@
 import { useState } from 'react'
 import { View } from 'react-native'
 import { Button, TextInput } from 'react-native-paper'
+import { useDispatch } from 'react-redux'
 
 import { Screen } from '../../commons/enums/screen'
+import { add } from '../../context/slices/taskSlice'
 import addDailyTask from '../../storage/addDailyTask'
 import { TaskScreenStyle } from './taskScreen.style'
 
 export const TaskScreen = ({ navigation }: any) => {
   const [taskName, setTaskName] = useState('')
   const [saveLoading, setSaveLoading] = useState(false)
+  const dispatch = useDispatch()
 
   const handleNewTask = async () => {
     setSaveLoading(true)
-    await addDailyTask(taskName)
+    const newDailyTask = await addDailyTask(taskName)
+    dispatch(add(newDailyTask))
     setSaveLoading(false)
     navigation.navigate(Screen.HOME)
   }
