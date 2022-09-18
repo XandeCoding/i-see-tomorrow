@@ -1,16 +1,12 @@
 import AsyncStorage from "@react-native-async-storage/async-storage"
 import { Collection } from "../commons/enums/collection"
 import { ITask } from "../entities/interfaces/ITask"
-import getDailyTasksCount from "./getDailyTasksCount"
+import getDailyTasksUIDs from "./getDailyTasksUIDs"
 
 const getDailyTasks = async (): Promise<ITask[]> => {
   try {
-    const dailyTasksCounter = await getDailyTasksCount()
-    const tasksKeys = []
-
-    for (let index=0; index < dailyTasksCounter; index++) {
-      tasksKeys.push(`${ Collection.DAILY_TASK }:${ index }`)
-    }
+    const dailyTasksUIDs = await getDailyTasksUIDs()
+    const tasksKeys = dailyTasksUIDs.map((uid) => `${ Collection.DAILY_TASK }:${ uid }`)
 
     const dataTasks = await AsyncStorage.multiGet(tasksKeys)
     return dataTasks

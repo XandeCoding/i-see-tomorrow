@@ -2,7 +2,7 @@ import { useState, Dispatch, SetStateAction } from 'react'
 import { TouchableOpacity, View } from 'react-native'
 import { Checkbox, Text } from 'react-native-paper'
 import { useDispatch } from 'react-redux'
-import { remove } from '../../context/slices/taskSlice'
+import { remove, update } from '../../context/slices/taskSlice'
 import { ITask } from "../../entities/interfaces/ITask"
 import deleteDailyTask from '../../storage/deleteDailyTask'
 import updateDailyTask from '../../storage/updateDailyTask'
@@ -19,16 +19,16 @@ export const Task = ({ task, setShowSnackBar }: props) => {
   const dispatch = useDispatch()
 
   const handleCheck = async () => {
-    const isChecked = !check
-    task.check = isChecked
+    task = { ...task, check: !task.check }
+    setCheck(task.check)
 
-    setCheck(isChecked)
     await updateDailyTask(task)
+    dispatch(update(task))
   }
 
-  const handleLongPress = () => {
+  const handleLongPress = async () => {
     setShowSnackBar(true)
-    deleteDailyTask(task)
+    await deleteDailyTask(task)
     dispatch(remove(task.key))
   }
 

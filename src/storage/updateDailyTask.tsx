@@ -5,10 +5,9 @@ import { ITask } from "../entities/interfaces/ITask"
 const updateDailyTask = async (taskInfo: ITask) => {
     try {
       const taskStringify = JSON.stringify(taskInfo)
-      console.log("task info to update", taskInfo, taskStringify)
-
       await AsyncStorage.mergeItem(taskInfo.key, taskStringify)
     } catch(error) {
+      console.error(error)
       throw new Error('Was not possible create daily task')
     }
   }

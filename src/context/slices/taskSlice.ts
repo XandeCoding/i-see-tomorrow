@@ -17,11 +17,20 @@ export const taskSlice = createSlice({
     add: (state, action: PayloadAction<ITask>) => {
       state.value = [...state.value, action.payload]
     },
+    update: (state, action: PayloadAction<ITask>) => {
+      state.value = state.value.map((task) => {
+        if (task.key === action.payload.key) {
+          return action.payload
+        }
+
+        return task
+      })
+    },
     remove: (state, action: PayloadAction<string>) => {
       state.value = state.value.filter((task) => task.key !== action.payload)
     }
   }
 })
 
-export const { set, add, remove } = taskSlice.actions
+export const { set, add, update, remove } = taskSlice.actions
 export default taskSlice.reducer

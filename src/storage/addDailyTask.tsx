@@ -1,31 +1,35 @@
 import AsyncStorage from "@react-native-async-storage/async-storage"
+import 'react-native-get-random-values'
+import shortUUID from 'short-uuid'
 import { Collection } from "../commons/enums/collection"
 import { ITask } from "../entities/interfaces/ITask"
-import getDailyTasksCount from "./getDailyTasksCount"
+import getDailyTasksUIDs from "./getDailyTasksUIDs"
 
 const addDailyTask = async (taskName: string): Promise<ITask> => {
   try {
-    const newDailyTaskCount = await getDailyTasksCount() + 1
-    const key = `${ Collection.DAILY_TASK }:${ newDailyTaskCount }`
+    const dailyTasksUIDs = await getDailyTasksUIDs()
+    const newDailyTaskUID = shortUUID().new()
+    dailyTasksUIDs.push(newDailyTaskUID)
+
+    const key = `${ Collection.DAILY_TASK }:${ newDailyTaskUID }`
     const taskInfo: ITask = {
       name: taskName,
       check: false,
       key
     }
-    const taskStringify = JSON.stringify(taskInfo)
-    console.log("task info", taskInfo, taskStringify)
 
     const taskData: [string, string] = [
-      key, taskStringify
+      key, JSON.stringify(taskInfo)
     ]
-    const incrementTaskCount: [string, string] = [
-      Collection.DAILY_TASK_COUNTER,
-      newDailyTaskCount.toString()
+    const addTaskUID: [string, string] = [
+      Collection.DAILY_TASK_UIDS,
+      JSON.stringify(dailyTasksUIDs)
     ]
 
-    await AsyncStorage.multiSet([taskData, incrementTaskCount])
+    await AsyncStorage.multiSet([taskData, addTaskUID])
     return taskInfo
   } catch(error) {
+    console.error(error)
     throw new Error('Was not possible create daily task')
   }
 }
